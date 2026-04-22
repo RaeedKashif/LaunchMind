@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutreachPilot</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Styles */
+        .hero {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+        
+        /* Features Grid Styles */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 50px;
+        }
+        
+        .feature {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .feature svg {
+            font-size: 24px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        
+        /* Call-to-Action Button Styles */
+        .cta {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .cta:hover {
+            background-color: #0069d9;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            clear: both;
+        }
+        
+        .footer p {
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero {
+                padding: 50px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero {
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>OutreachPilot automates after-hours call coverage for local US business owners, ensuring 98% of incoming calls are answered and no clients are lost due to missed opportunities.</h1>
+        <p>Get back to focusing on what matters most – growing your business.</p>
+        <button class="cta" onclick="window.location.href='https://example.com/early-access'">Get Early Access</button>
+    </div>
+    <div class="features-grid">
+        <div class="feature">
+            <h2><i class="fas fa-phone"></i> Dedicated Call Coverage</h2>
+            <p>AI voice call agents answer incoming calls 24/7, ensuring 95% of calls are answered within 10 rings, significantly reducing call abandonment rates and lost revenue.</p>
+        </div>
+        <div class="feature">
+            <h2><i class="fas fa-film"></i> Call Recording and Transcription</h2>
+            <p>Automatically record and transcribe calls to facilitate efficient call review, client feedback, and employee training, reducing call resolution time by 30%.</p>
+        </div>
+        <div class="feature">
+            <h2><i class="fas fa-share"></i> Intelligent Routing and Hold Music</h2>
+            <p>AI-powered call routing directs calls to the most available agents or to specific departments, while customizable hold music engages callers with relevant information about the business.</p>
+        </div>
+        <div class="feature">
+            <h2><i class="fas fa-chart-line"></i> Call Analytics and Insights</h2>
+            <p>Detailed call analytics and insights provide business owners with a clear understanding of call patterns, agent performance, and customer behavior, enabling data-driven decisions to improve the customer experience.</p>
+        </div>
+        <div class="feature">
+            <h2><i class="fas fa-sync"></i> Integration with Existing CRM</h2>
+            <p>Seamless integration with existing CRM systems (e.g., HubSpot, Zoho) ensures effortless call logging, client updates, and sales funnel management, reducing manual data entry and increasing sales efficiency.</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 OutreachPilot. Get ahead of the competition and automate your after-hours call coverage.</p>
+    </footer>
+</body>
+</html>
