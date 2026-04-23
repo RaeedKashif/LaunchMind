@@ -1,6 +1,6 @@
 """OutreachPilot — single entry point that runs the full multi-agent pipeline."""
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 from message_bus import MessageBus
 from agents.product_agent import ProductAgent

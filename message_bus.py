@@ -53,7 +53,7 @@ class MessageBus:
         to = message["to_agent"].upper()
         mtype = message["message_type"]
         summary = MessageBus._summary(message["payload"])
-        print(f"[{ts}] {frm} \u2192 {to} ({mtype}): {summary}")
+        print(f"[{ts}] {frm} -> {to} ({mtype}): {summary}")
 
     @staticmethod
     def _summary(payload: dict) -> str:

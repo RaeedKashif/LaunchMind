@@ -1,6 +1,10 @@
 """Marketing Agent — generates copy, sends real email, posts to Slack."""
 import json
 import os
+import smtplib
+import ssl
+from email.message import EmailMessage
+
 import requests
 
 from llm_client import call_llm, parse_llm_json
@@ -59,21 +63,27 @@ class MarketingAgent:
 
     def _send_email(self, copy: dict) -> str:
         try:
-            from sendgrid import SendGridAPIClient
-            from sendgrid.helpers.mail import Mail
+            sender = os.environ["GMAIL_ADDRESS"]
+            password = os.environ["GMAIL_APP_PASSWORD"]
+            recipient = os.environ["TEST_EMAIL"]
 
-            message = Mail(
-                from_email=os.environ["SENDGRID_FROM_EMAIL"],
-                to_emails=os.environ["TEST_EMAIL"],
-                subject=copy["email_subject"],
-                html_content=f"<html><body>{copy['email_body']}</body></html>",
+            msg = EmailMessage()
+            msg["From"] = sender
+            msg["To"] = recipient
+            msg["Subject"] = copy["email_subject"]
+            msg.set_content(copy["email_body"])
+            msg.add_alternative(
+                f"<html><body>{copy['email_body']}</body></html>", subtype="html"
             )
-            sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
-            response = sg.send(message)
-            print(f"  [SendGrid] status: {response.status_code}")
-            return "sent" if 200 <= response.status_code < 300 else f"error:{response.status_code}"
+
+            ctx = ssl.create_default_context()
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ctx) as server:
+                server.login(sender, password)
+                server.send_message(msg)
+            print(f"  [Gmail SMTP] sent to {recipient}")
+            return "sent"
         except Exception as e:
-            print(f"  [SendGrid] failed: {e}")
+            print(f"  [Gmail SMTP] failed: {e}")
             return f"error:{e}"
 
     def _post_to_slack(self, tagline: str, description: str, pr_url: str) -> str:

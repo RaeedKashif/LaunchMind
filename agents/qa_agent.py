@@ -21,7 +21,7 @@ Product spec:
 {json.dumps(product_spec, indent=2)}
 
 HTML landing page:
-{html[:6000]}
+{html[:4000]}
 
 Marketing copy:
 {json.dumps(marketing_copy, indent=2)}
